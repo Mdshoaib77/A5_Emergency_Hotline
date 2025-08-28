@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Emergency Service Directory</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <meta name="description" content="Government Emergency Services at your fingertip" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%2322c55e'/%3E%3Ctext x='50' y='58' text-anchor='middle' font-size='50' fill='white'%3E%E2%9A%A1%3C/text%3E%3C/svg%3E" />
+  <style>
+    .glass { backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
+    .whitespace-nowrap { white-space: normal !important; }
+  </style>
+</head>
+<body class="bg-base-200 min-h-screen">
+
+<!-- Navbar -->
+<nav class="navbar bg-base-100 shadow-sm sticky top-0 z-50">
+  <div class="container mx-auto px-3 flex flex-wrap justify-between items-center gap-3">
+    <div class="flex items-center gap-3 flex-shrink-0">
+      <div class="avatar">
+        <div class="w-9 sm:w-10 md:w-12 rounded-full">
+          <img src="assets/logo.png" alt="Logo" />
+        </div>
+      </div>
+      <a class="text-sm sm:text-base md:text-lg lg:text-xl font-semibold text-[#006747] leading-tight">
+        Emergency<br class="hidden sm:block" />Service
+      </a>
+    </div>
+
+    <div class="flex items-center gap-2 sm:gap-3 flex-wrap justify-end w-full sm:w-auto mt-2 sm:mt-0">
+      <div class="flex items-center gap-1 bg-white rounded-full px-2 sm:px-3 py-1 shadow text-xs sm:text-sm">
+        <span id="heartCount" class="font-medium text-gray-700">0</span>
+        <img src="assets/heart.png" alt="Heart" class="w-4 h-4" />
+      </div>
+
+
+      <div class="flex items-center gap-1 bg-white rounded-full px-2 sm:px-3 py-1 shadow text-xs sm:text-sm">
+        <span id="coinCount" class="font-medium text-gray-700">100</span>
+        <img src="assets/coin.png" alt="Coin" class="w-4 h-4" />
+      </div>
+
+      <button id="copyPill" class="flex items-center gap-1 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-full px-3 sm:px-4 py-1 shadow text-xs sm:text-sm" type="button">
+        Copy
+      </button>
+    </div>
+  </div>
+</nav>
+</body>
+</html>
