@@ -132,5 +132,64 @@
     </div>
   </div>
 </template>
+
+
+<!-- Script -->
+<script>
+  const services = [
+    { icon:"assets/emergency.png", nameBn:"National Emergency Number", nameEn:"National Emergency", number:"999", category:"All" },
+    { icon:"assets/police.png", nameBn:"Police Helpline Number", nameEn:"Police", number:"999", category:"Police" },
+    { icon:"assets/fire-service.png", nameBn:"Fire Service Number", nameEn:"Fire Service", number:"999", category:"Fire" },
+    { icon:"assets/ambulance.png", nameBn:"Ambulance Service Number", nameEn:"Ambulance", number:"1994-999999", category:"Health" },
+    { icon:"assets/emergency.png", nameBn:"Women & Child Helpline", nameEn:"Women & Child", number:"109", category:"Help" },
+    { icon:"assets/emergency.png", nameBn:"Anti-Corruption Helpline", nameEn:"Anti-Corruption", number:"106", category:"Govt." },
+    { icon:"assets/emergency.png", nameBn:"Electricity Helpline", nameEn:"Electricity Outage", number:"16216", category:"Electricity" },
+    { icon:"assets/brac.png", nameBn:"Brac Helpline", nameEn:"BRAC", number:"16445", category:"NGO" },
+    { icon:"assets/Bangladesh-Railway.png", nameBn:"Railway Helpline", nameEn:"Bangladesh Railway", number:"163", category:"Travel" }
+  ];
+
+  let coins = 100, heartCount = 0, copyCount = 0;
+  const coinEl = document.getElementById("coinCount"), heartEl = document.getElementById("heartCount"), copyPill = document.getElementById("copyPill"), grid = document.getElementById("cardGrid"), historyList = document.getElementById("historyList"), clearHistoryBtn = document.getElementById("clearHistory");
+
+  function nowTime() { const d = new Date(); return d.toLocaleTimeString([], { hour:"2-digit", minute:"2-digit", second:"2-digit" }); }
+
+  function renderCard(service){
+    const tpl = document.getElementById("cardTemplate"), node = tpl.content.cloneNode(true);
+    const iconBox = node.querySelector(".icon-box");
+    iconBox.innerHTML = `<img src="${service.icon}" alt="${service.nameEn}" class="w-6 h-6" />`;
+    node.querySelector(".name-bn").textContent = service.nameBn;
+    node.querySelector(".name-en").textContent = service.nameEn;
+    node.querySelector(".number").textContent = service.number;
+    node.querySelector(".category").textContent = service.category;
+
+    const likeBtn = node.querySelector(".like-btn"), copyBtn = node.querySelector(".copy-btn"), callBtn = node.querySelector(".call-btn");
+
+    likeBtn.addEventListener("click", () => { heartCount++; heartEl.textContent = heartCount; });
+
+    copyBtn.addEventListener("click", async () => {
+      try { await navigator.clipboard.writeText(service.number); alert(`Copied: ${service.number}`); } 
+      catch { const ta = document.createElement("textarea"); ta.value = service.number; document.body.appendChild(ta); ta.select(); document.execCommand("copy"); ta.remove(); alert(`Copied: ${service.number}`); }
+      copyCount++; copyPill.textContent = `${copyCount} Copy`;
+    });
+
+    callBtn.addEventListener("click", () => {
+      if(coins<20){ alert("Not enough coins to make a call. You need 20 coins."); return; }
+      alert(`Calling ${service.nameBn} (${service.number})...`); coins -=20; coinEl.textContent = coins;
+      addToHistory(service.nameBn, service.number, nowTime());
+    });
+
+    grid.appendChild(node);
+  }
+
+  function addToHistory(name, number, timeStr){
+    const li = document.createElement("li");
+    li.className = "flex items-start justify-between gap-2 border rounded-lg px-3 py-2";
+    li.innerHTML = `<div><div class="font-medium leading-tight">${name}</div><div class="text-xs opacity-70">${number}</div></div><div class="text-xs opacity-70 mt-0.5">${timeStr}</div>`;
+    historyList.prepend(li);
+  }
+
+  clearHistoryBtn.addEventListener("click", ()=> historyList.innerHTML="");
+  services.forEach(renderCard);
+</script>
 </body>
 </html>
