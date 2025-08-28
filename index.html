@@ -65,5 +65,31 @@
     </div>
   </div>
 </header>
+
+
+<!-- Main -->
+<main class="container mx-auto px-3 py-4 sm:py-6 md:py-8">
+  <div class="grid lg:grid-cols-3 gap-4">
+    <section class="lg:col-span-2">
+      <div id="cardGrid" class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4"></div>
+    </section>
+
+    <aside class="bg-white rounded-xl shadow p-3 sm:p-4 h-fit">
+      <div class="flex items-center justify-between mb-2 sm:mb-3">
+        <div class="flex items-center gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 fill-emerald-600" viewBox="0 0 24 24">
+            <path d="M12 8a1 1 0 0 1 1 1v3.59l2.3 2.3a1 1 0 1 1-1.4 1.42l-2.59-2.6A1 1 0 0 1 11 13V9a1 1 0 0 1 1-1zm0-6C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16z"/>
+          </svg>
+          <h2 class="text-base sm:text-lg font-semibold">Call History</h2>
+        </div>
+        <button id="clearHistory" class="btn btn-xs sm:btn-sm bg-green-500 hover:bg-green-600 text-white rounded-full px-3 sm:px-4">
+          Clear
+        </button>
+      </div>
+      <ul id="historyList" class="space-y-2 max-h-[300px] sm:max-h-[400px] md:max-h-[520px] overflow-y-auto"></ul>
+    </aside>
+  </div>
+</main>
+
 </body>
 </html>
