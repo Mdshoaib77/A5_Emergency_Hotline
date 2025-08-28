@@ -91,5 +91,46 @@
   </div>
 </main>
 
+<!-- Template Section-->
+<template id="cardTemplate">
+  <div class="card bg-base-100 shadow-sm border border-base-200">
+    <div class="card-body p-4">
+      <div class="flex items-start justify-between gap-3">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-base-200 grid place-items-center text-xl icon-box"></div>
+          <div>
+            <h3 class="font-semibold leading-tight name-bn text-sm sm:text-base">Service Name</h3>
+            <p class="text-xs opacity-70 name-en">English name</p>
+          </div>
+        </div>
+        <button class="btn btn-circle btn-ghost btn-xs like-btn" aria-label="Like">
+          <svg xmlns="http://www.w3.org/2000/svg" class="size-4" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 22l7.8-8.6 1-1a5.5 5.5 0 0 0 0-7.8Z"/>
+          </svg>
+        </button>
+      </div>
+      <div class="mt-3">
+        <div class="text-xl sm:text-2xl font-bold number">000</div>
+        <div class="mt-1">
+          <div class="badge badge-outline rounded-full category text-gray-600 bg-gray-50">Category</div>
+        </div>
+      </div>
+      <div class="mt-4 grid grid-cols-2 gap-3">
+        <button class="btn btn-xs sm:btn-sm bg-white border border-base-300 text-gray-700 hover:bg-base-100 copy-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M16 1H4c-1.1 0-2 .9-2 2v12h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+          </svg>
+          <span>Copy</span>
+        </button>
+        <button class="btn btn-xs sm:btn-sm bg-green-600 hover:bg-green-700 text-white call-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M6.62 10.79a15.053 15.053 0 0 0 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1C10.29 21 3 13.71 3 4c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.24.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+          </svg>
+          <span>Call</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</template>
 </body>
 </html>
